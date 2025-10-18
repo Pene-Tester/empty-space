@@ -13,7 +13,7 @@ html, body {
 
 body {
     font-family: 'Montserrat', sans-serif;
-    background: linear-gradient(180deg, rgba(0, 0, 16, 0.8) 0%, rgba(18, 0, 37, 0.8) 100%), url('../images/backgroun-main.jpg');
+    background: linear-gradient(180deg, rgba(0, 0, 0, 0.7) 0%, rgba(0, 0, 0, 0.8) 100%), url('../images/backgroun-main.jpg');
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
@@ -118,7 +118,7 @@ body {
     color: #FFFFFF;
     text-decoration: none;
     font-family: 'Montserrat', sans-serif;
-    font-weight: 600;
+    font-weight: 400;
     font-size: 0.9rem;
     letter-spacing: 1px;
     transition: all 0.3s ease;
@@ -138,12 +138,13 @@ body {
     transform: translateY(0);
 }
 
-.nav-links.nav-left .nav-link:first-child {
+/* Active navigation link highlighting */
+.nav-link.active {
     background: rgba(255, 215, 0, 0.1);
     border: 1px solid rgba(255, 215, 0, 0.3);
 }
 
-.nav-links.nav-left .nav-link:first-child:hover {
+.nav-link.active:hover {
     background: rgba(255, 215, 0, 0.2);
     border-color: rgba(255, 215, 0, 0.5);
     box-shadow: 0 0 20px rgba(255, 215, 0, 0.3);
@@ -380,50 +381,104 @@ body {
     }
 }
 
-/* Responsive Design */
-@media (max-width: 768px) {
+/* Responsive Design - Mobile First Approach */
+
+/* Extra Small Devices (phones, 320px and up) */
+@media (max-width: 480px) {
     .navbar {
+        height: 100px;
+        padding: 0 0.5rem;
         flex-direction: column;
-        height: auto;
-        padding: 1rem;
-        gap: 1rem;
-    }
-    
-    .navbar .nav-links {
-        flex: none;
-        margin: 0;
-    }
-    
-    .nav-links {
-        gap: 2rem;
-    }
-    
-    .nav-link {
-        font-size: 0.8rem;
+        gap: 0.5rem;
+        background: rgba(0, 0, 0, 0.3);
     }
     
     .logo-img {
-        width: 120px;
-        height: 120px;
+        width: 80px;
+        height: 80px;
+    }
+    
+    .nav-links {
+        gap: 1rem;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    
+    .nav-link {
+        font-size: 0.7rem;
+        padding: 0.3rem 0.6rem;
+    }
+    
+    .hero {
+        padding: 0.5rem;
+        padding-top: 200px;
+        min-height: 100vh;
+    }
+    
+    .hero-text {
+        font-size: 0.8rem;
+        max-width: 95%;
+        line-height: 1.4;
+    }
+    
+    .planet-img {
+        width: 60px;
+        height: 60px;
+    }
+    
+    .coffee-cup {
+        max-width: 120px;
+    }
+    
+    .constellation-left,
+    .constellation-right {
+        display: none;
+    }
+    
+    .stars-container {
+        opacity: 0.5;
+    }
+}
+
+/* Small Devices (landscape phones, 481px and up) */
+@media (min-width: 481px) and (max-width: 768px) {
+    .navbar {
+        height: 110px;
+        padding: 0 1rem;
+        flex-direction: row;
+    }
+    
+    .logo-img {
+        width: 100px;
+        height: 100px;
+    }
+    
+    .nav-links {
+        gap: 1.2rem;
+    }
+    
+    .nav-link {
+        font-size: 0.75rem;
+        padding: 0.4rem 0.7rem;
     }
     
     .hero {
         padding: 1rem;
-        padding-top: 180px;
+        padding-top: 160px;
     }
     
     .hero-text {
+        font-size: 0.85rem;
         max-width: 90%;
-        font-size: 1rem;
-    }
-    
-    .coffee-cup {
-        max-width: 150px;
     }
     
     .planet-img {
-        width: 80px;
-        height: 80px;
+        width: 70px;
+        height: 70px;
+    }
+    
+    .coffee-cup {
+        max-width: 140px;
     }
     
     .constellation-left,
@@ -432,28 +487,167 @@ body {
     }
 }
 
-@media (max-width: 480px) {
+/* Medium Devices (tablets, 769px and up) */
+@media (min-width: 769px) and (max-width: 1024px) {
     .navbar {
-        position: relative;
-        background: rgba(0, 0, 0, 0.3);
+        height: 130px;
+        padding: 0 1.5rem;
+    }
+    
+    .logo-img {
+        width: 150px;
+        height: 150px;
     }
     
     .nav-links {
-        flex-wrap: wrap;
-        justify-content: center;
-        gap: 1rem;
+        gap: 2rem;
+    }
+    
+    .nav-link {
+        font-size: 0.85rem;
+        padding: 0.5rem 1rem;
     }
     
     .hero {
-        padding-top: 2rem;
+        padding: 1.5rem;
+        padding-top: 180px;
     }
     
     .hero-text {
-        font-size: 0.9rem;
+        font-size: 0.95rem;
+        max-width: 80%;
+    }
+    
+    .planet-img {
+        width: 90px;
+        height: 90px;
     }
     
     .coffee-cup {
-        max-width: 120px;
+        max-width: 180px;
+    }
+    
+    .constellation-left,
+    .constellation-right {
+        opacity: 0.7;
+    }
+}
+
+/* Large Devices (desktops, 1025px and up) */
+@media (min-width: 1025px) and (max-width: 1440px) {
+    .navbar {
+        height: 140px;
+        padding: 0 2rem;
+    }
+    
+    .logo-img {
+        width: 180px;
+        height: 180px;
+    }
+    
+    .nav-links {
+        gap: 2.5rem;
+    }
+    
+    .nav-link {
+        font-size: 0.9rem;
+        padding: 0.5rem 1rem;
+    }
+    
+    .hero {
+        padding: 2rem;
+        padding-top: 180px;
+    }
+    
+    .hero-text {
+        font-size: 1rem;
+        max-width: 70%;
+    }
+    
+    .planet-img {
+        width: 100px;
+        height: 100px;
+    }
+    
+    .coffee-cup {
+        max-width: 200px;
+    }
+}
+
+/* Extra Large Devices (large desktops, 1441px and up) */
+@media (min-width: 1441px) {
+    .navbar {
+        height: 160px;
+        padding: 0 3rem;
+    }
+    
+    .logo-img {
+        width: 220px;
+        height: 220px;
+    }
+    
+    .nav-links {
+        gap: 3rem;
+    }
+    
+    .nav-link {
+        font-size: 1rem;
+        padding: 0.6rem 1.2rem;
+    }
+    
+    .hero {
+        padding: 3rem;
+        padding-top: 200px;
+    }
+    
+    .hero-text {
+        font-size: 1.1rem;
+        max-width: 60%;
+    }
+    
+    .planet-img {
+        width: 120px;
+        height: 120px;
+    }
+    
+    .coffee-cup {
+        max-width: 250px;
+    }
+    
+    .constellation-left,
+    .constellation-right {
+        opacity: 1;
+    }
+}
+
+/* Landscape Orientation Adjustments */
+@media (max-height: 600px) and (orientation: landscape) {
+    .navbar {
+        height: 80px;
+    }
+    
+    .logo-img {
+        width: 60px;
+        height: 60px;
+    }
+    
+    .hero {
+        padding-top: 100px;
+        min-height: 100vh;
+    }
+    
+    .hero-text {
+        font-size: 0.8rem;
+        margin-bottom: 1rem;
+    }
+    
+    .planet-img {
+        width: 50px;
+        height: 50px;
+    }
+    
+    .coffee-cup {
+        max-width: 100px;
     }
 }
 

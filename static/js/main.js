@@ -155,11 +155,11 @@
         
         navLinks.forEach(link => {
             link.addEventListener('click', (e) => {
-                e.preventDefault();
-                
-                // Add smooth scroll behavior
                 const targetId = link.getAttribute('href');
+                
+                // Only prevent default for hash links (smooth scrolling)
                 if (targetId && targetId.startsWith('#')) {
+                    e.preventDefault();
                     const targetElement = document.querySelector(targetId);
                     if (targetElement) {
                         targetElement.scrollIntoView({
@@ -168,6 +168,7 @@
                         });
                     }
                 }
+                // For other links (like /menu), let them navigate normally
             });
         });
     }

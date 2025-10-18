@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menu - Empty Space Café</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/menu.css') }}">
+    <style>
+        /* Menu Page Styles */
+        .menu-hero {
+            position: relative;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+            padding-top: 180px;
+            z-index: 10;
+        }
+        
+        .menu-title h1 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #FFFFFF;
+            text-align: center;
+            margin-bottom: 1rem;
+        }
+        
+        .menu-items {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+            max-width: 1000px;
+            width: 100%;
+        }
+        
+        .menu-item {
+            background: transparent;
+            border-radius: 15px;
+            padding: 2rem;
+            border: none;
+            min-height: 200px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .menu-item-content {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+        }
+        
+        .drink-cup {
+            width: 150px;
+            height: 150px;
+            object-fit: contain;
+        }
+        
+        .drink-description p {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1rem;
+            line-height: 1.6;
+            color: #FFFFFF;
+            margin: 0;
+        }
+        
+        .menu-icon {
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+        
+        .coffee-icon-img {
+            width: 60px;
+            height: 60px;
+            object-fit: contain;
+            filter: drop-shadow(0 0 15px rgba(255, 255, 255, 0.5));
+            animation: coffeeGlow 3s ease-in-out infinite, coffeeFloat 4s ease-in-out infinite;
+            transition: all 0.3s ease;
+        }
+        
+        .coffee-icon-img:hover {
+            transform: scale(1.2) rotate(10deg);
+            filter: drop-shadow(0 0 25px rgba(255, 255, 255, 0.8));
+        }
+        
+        .decorative-elements {
+            position: absolute;
+            right: -20px;
+            top: 50%;
+            transform: translateY(-50%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .arrow {
+            width: 40px;
+            height: auto;
+            opacity: 0.8;
+            animation: arrowWave 2s ease-in-out infinite;
+            filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.3));
+        }
+        
+        @keyframes coffeeGlow {
+            0%, 100% { 
+                filter: drop-shadow(0 0 15px rgba(255, 255, 255, 0.5));
+            }
+            50% { 
+                filter: drop-shadow(0 0 25px rgba(255, 255, 255, 0.8));
+            }
+        }
+        
+        @keyframes coffeeFloat {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            25% { transform: translateY(-3px) rotate(1deg); }
+            75% { transform: translateY(3px) rotate(-1deg); }
+        }
+        
+        @keyframes arrowWave {
+            0%, 100% { 
+                transform: translateX(0px) scale(1);
+                opacity: 0.8;
+            }
+            50% { 
+                transform: translateX(5px) scale(1.1);
+                opacity: 1;
+            }
+        }
+        
+        /* Responsive Design for Menu Page */
+        
+        /* Extra Small Devices (phones, 320px and up) */
+        @media (max-width: 480px) {
+            .menu-hero {
+                padding: 0.5rem;
+                padding-top: 200px;
+            }
+            
+            .menu-title h1 {
+                font-size: 1.5rem;
+                margin-bottom: 1.5rem;
+            }
+            
+            .menu-items {
+                gap: 1rem;
+            }
+            
+            .menu-item {
+                padding: 1rem;
+                min-height: auto;
+            }
+            
+            .menu-item-content {
+                flex-direction: column;
+                text-align: center;
+                gap: 1rem;
+            }
+            
+            .drink-cup {
+                width: 100px;
+                height: 100px;
+            }
+            
+            .drink-description p {
+                font-size: 0.8rem;
+                line-height: 1.4;
+            }
+            
+            .decorative-elements {
+                position: static;
+                transform: none;
+                justify-content: center;
+                margin-top: 0.5rem;
+            }
+            
+            .arrow {
+                width: 30px;
+            }
+            
+            .coffee-icon-img {
+                width: 40px;
+                height: 40px;
+            }
+        }
+        
+        /* Small Devices (landscape phones, 481px and up) */
+        @media (min-width: 481px) and (max-width: 768px) {
+            .menu-hero {
+                padding: 1rem;
+                padding-top: 180px;
+            }
+            
+            .menu-title h1 {
+                font-size: 1.8rem;
+                margin-bottom: 2rem;
+            }
+            
+            .menu-item {
+                padding: 1.5rem;
+            }
+            
+            .drink-cup {
+                width: 120px;
+                height: 120px;
+            }
+            
+            .drink-description p {
+                font-size: 0.85rem;
+            }
+            
+            .coffee-icon-img {
+                width: 50px;
+                height: 50px;
+            }
+        }
+        
+        /* Medium Devices (tablets, 769px and up) */
+        @media (min-width: 769px) and (max-width: 1024px) {
+            .menu-hero {
+                padding: 1.5rem;
+                padding-top: 200px;
+            }
+            
+            .menu-title h1 {
+                font-size: 2.2rem;
+                margin-bottom: 2.5rem;
+            }
+            
+            .menu-item {
+                padding: 2rem;
+            }
+            
+            .drink-cup {
+                width: 140px;
+                height: 140px;
+            }
+            
+            .coffee-icon-img {
+                width: 60px;
+                height: 60px;
+            }
+        }
+        
+        /* Large Devices (desktops, 1025px and up) */
+        @media (min-width: 1025px) and (max-width: 1440px) {
+            .menu-hero {
+                padding: 2rem;
+                padding-top: 200px;
+            }
+            
+            .menu-title h1 {
+                font-size: 2.5rem;
+                margin-bottom: 3rem;
+            }
+            
+            .coffee-icon-img {
+                width: 70px;
+                height: 70px;
+            }
+        }
+        
+        /* Extra Large Devices (large desktops, 1441px and up) */
+        @media (min-width: 1441px) {
+            .menu-hero {
+                padding: 3rem;
+                padding-top: 220px;
+            }
+            
+            .menu-title h1 {
+                font-size: 3rem;
+                margin-bottom: 3.5rem;
+            }
+            
+            .coffee-icon-img {
+                width: 80px;
+                height: 80px;
+            }
+        }
+        
+        /* Landscape Orientation Adjustments */
+        @media (max-height: 600px) and (orientation: landscape) {
+            .menu-hero {
+                padding-top: 120px;
+            }
+            
+            .menu-title h1 {
+                font-size: 1.5rem;
+                margin-bottom: 1rem;
+            }
+            
+            .menu-item {
+                padding: 1rem;
+                min-height: auto;
+            }
+            
+            .coffee-icon-img {
+                width: 40px;
+                height: 40px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-links nav-left">
+            <a href="/" class="nav-link">HOME</a>
+            <a href="#" class="nav-link">ABOUT US</a>
+        </div>
+        
+        <div class="logo">
+            <div class="logo-icon">
+                <img src="{{ url_for('static', filename='images/logo.png') }}" alt="Empty Space Coffee Logo" class="logo-img">
+            </div>
+        </div>
+        
+        <div class="nav-links nav-right">
+            <a href="#" class="nav-link">CONTACT</a>
+            <a href="{{ url_for('menu') }}" class="nav-link active">MENU</a>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="menu-hero">
+        <!-- Coffee Icon -->
+        <div class="menu-icon">
+            <img src="{{ url_for('static', filename='images/coffee-icon.png') }}" alt="Coffee Icon" class="coffee-icon-img">
+        </div>
+
+        <!-- Menu Title -->
+        <div class="menu-title">
+            <h1>MOONS AND OTHER CELESTIAL COFFEE</h1>
+        </div>
+
+        <!-- Menu Items -->
+        <div class="menu-items">
+            <!-- First Menu Item - Iced Latte -->
+            <div class="menu-item">
+                <div class="menu-item-content">
+                    <div class="drink-image">
+                        <img src="{{ url_for('static', filename='images/cup1.png') }}" alt="Iced Latte" class="drink-cup">
+                        <div class="decorative-elements">
+                            <img src="{{ url_for('static', filename='images/wave-arrow-icon.png') }}" alt="Arrow" class="arrow">
+                        </div>
+                    </div>
+                    <div class="drink-description">
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Second Menu Item - Green Drink -->
+            <div class="menu-item">
+                <div class="menu-item-content">
+                    <div class="drink-image">
+                        <img src="{{ url_for('static', filename='images/cup1.png') }}" alt="Green Drink" class="drink-cup">
+                        <div class="decorative-elements">
+                            <img src="{{ url_for('static', filename='images/wave-arrow-icon.png') }}" alt="Arrow" class="arrow">
+                        </div>
+                    </div>
+                    <div class="drink-description">
+                        <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Background Stars -->
+    <div class="stars-container">
+        <div class="stars stars-1"></div>
+        <div class="stars stars-2"></div>
+        <div class="stars stars-3"></div>
+    </div>
+
+    <!-- JavaScript -->
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+</body>
+</html>

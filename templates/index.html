@@ -11,13 +11,13 @@
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">
     
     <!-- CSS -->
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}?v=1">
 </head>
 <body>
     <!-- Navigation -->
     <nav class="navbar">
         <div class="nav-links nav-left">
-            <a href="#" class="nav-link">HOME</a>
+            <a href="#" class="nav-link active">HOME</a>
             <a href="#" class="nav-link">ABOUT US</a>
         </div>
         
@@ -29,7 +29,7 @@
         
         <div class="nav-links nav-right">
             <a href="#" class="nav-link">CONTACT</a>
-            <a href="#" class="nav-link">MENU</a>
+            <a href="/menu" class="nav-link">MENU</a>
         </div>
     </nav>
 
@@ -82,6 +82,6 @@
     </div>
 
     <!-- JavaScript -->
-    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/main.js') }}?v=1"></script>
 </body>
 </html>

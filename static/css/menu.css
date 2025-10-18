@@ -1,0 +1,194 @@
+/* Menu Page Specific Styles */
+
+.menu-hero {
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+    padding-top: 180px;
+    z-index: 10;
+}
+
+.menu-title {
+    text-align: center;
+    margin-bottom: 4rem;
+}
+
+.menu-title h1 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 3rem;
+    font-weight: 700;
+    color: #FFFFFF;
+    text-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
+    letter-spacing: 2px;
+    animation: glow 2s ease-in-out infinite alternate;
+}
+
+@keyframes glow {
+    from {
+        text-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
+    }
+    to {
+        text-shadow: 0 0 30px rgba(255, 255, 255, 0.8), 0 0 40px rgba(255, 255, 255, 0.3);
+    }
+}
+
+.menu-items {
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+    max-width: 1200px;
+    width: 100%;
+}
+
+.menu-item {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 20px;
+    padding: 2rem;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: all 0.3s ease;
+}
+
+.menu-item:hover {
+    background: rgba(255, 255, 255, 0.08);
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(255, 255, 255, 0.1);
+}
+
+.menu-item-content {
+    display: flex;
+    align-items: center;
+    gap: 3rem;
+}
+
+.drink-image {
+    position: relative;
+    flex-shrink: 0;
+}
+
+.drink-cup {
+    width: 150px;
+    height: auto;
+    filter: drop-shadow(0 5px 15px rgba(255, 255, 255, 0.2));
+    transition: all 0.3s ease;
+}
+
+.drink-cup:hover {
+    transform: scale(1.05);
+    filter: drop-shadow(0 8px 25px rgba(255, 255, 255, 0.3));
+}
+
+.decorative-elements {
+    position: absolute;
+    right: -20px;
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+}
+
+.beans {
+    width: 30px;
+    height: auto;
+    opacity: 0.8;
+    animation: float 3s ease-in-out infinite;
+}
+
+.arrow {
+    width: 40px;
+    height: auto;
+    opacity: 0.7;
+    animation: pulse 2s ease-in-out infinite;
+}
+
+.drink-description {
+    flex: 1;
+}
+
+.drink-description p {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1rem;
+    line-height: 1.6;
+    color: #FFFFFF;
+    margin: 0;
+    text-align: left;
+}
+
+/* Active Menu Link */
+.nav-link.active {
+    background: rgba(255, 215, 0, 0.1);
+    border: 1px solid rgba(255, 215, 0, 0.3);
+    color: #FFD700;
+}
+
+.nav-link.active:hover {
+    background: rgba(255, 215, 0, 0.2);
+    border-color: rgba(255, 215, 0, 0.5);
+    box-shadow: 0 0 20px rgba(255, 215, 0, 0.3);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .menu-hero {
+        padding: 1rem;
+        padding-top: 200px;
+    }
+    
+    .menu-title h1 {
+        font-size: 2rem;
+    }
+    
+    .menu-item-content {
+        flex-direction: column;
+        text-align: center;
+        gap: 2rem;
+    }
+    
+    .drink-image {
+        order: 1;
+    }
+    
+    .drink-description {
+        order: 2;
+    }
+    
+    .decorative-elements {
+        position: static;
+        transform: none;
+        flex-direction: row;
+        justify-content: center;
+        margin-top: 1rem;
+    }
+    
+    .drink-cup {
+        width: 120px;
+    }
+}
+
+@media (max-width: 480px) {
+    .menu-title h1 {
+        font-size: 1.5rem;
+    }
+    
+    .menu-item {
+        padding: 1.5rem;
+    }
+    
+    .drink-cup {
+        width: 100px;
+    }
+    
+    .beans {
+        width: 25px;
+    }
+    
+    .arrow {
+        width: 30px;
+    }
+}
