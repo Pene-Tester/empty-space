@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Empty Space Café</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-links nav-left">
+            <a href="#" class="nav-link">HOME</a>
+            <a href="#" class="nav-link">ABOUT US</a>
+        </div>
+        
+        <div class="logo">
+            <div class="logo-icon">
+                <img src="{{ url_for('static', filename='images/logo.png') }}" alt="Empty Space Coffee Logo" class="logo-img">
+            </div>
+        </div>
+        
+        <div class="nav-links nav-right">
+            <a href="#" class="nav-link">CONTACT</a>
+            <a href="#" class="nav-link">MENU</a>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="hero">
+        <!-- Planet Icon -->
+        <div class="planet-icon fade-in">
+            <img src="{{ url_for('static', filename='images/icon0.png') }}" alt="Planet Icon" class="planet-img">
+        </div>
+
+        <!-- Hero Text -->
+        <div class="hero-text fade-in">
+            <p>Empty Café is a great spot for coffee in the morning or a quick bite to eat. It's located in the heart of downtown, making it convenient for those who work in the area. The café website also has a selection of pastries and baked goods. District Café is a casual spot that is perfect for meeting up with friends or grabbing a treat on the go.</p>
+        </div>
+
+        <!-- Coffee Image -->
+        <div class="coffee-image fade-in">
+            <img src="{{ url_for('static', filename='images/cup0.png') }}" alt="Iced latte coffee" class="coffee-cup">
+        </div>
+    </main>
+
+    <!-- Constellation Elements -->
+    <div class="constellation constellation-left">
+        <div class="star star-1"></div>
+        <div class="star star-2"></div>
+        <div class="star star-3"></div>
+        <div class="star star-4"></div>
+        <div class="constellation-line line-1"></div>
+        <div class="constellation-line line-2"></div>
+        <div class="constellation-line line-3"></div>
+    </div>
+
+    <div class="constellation constellation-right">
+        <div class="star star-1"></div>
+        <div class="star star-2"></div>
+        <div class="star star-3"></div>
+        <div class="star star-4"></div>
+        <div class="star star-5"></div>
+        <div class="constellation-line line-1"></div>
+        <div class="constellation-line line-2"></div>
+        <div class="constellation-line line-3"></div>
+        <div class="constellation-line line-4"></div>
+    </div>
+
+    <!-- Background Stars -->
+    <div class="stars-container">
+        <div class="stars stars-1"></div>
+        <div class="stars stars-2"></div>
+        <div class="stars stars-3"></div>
+    </div>
+
+    <!-- JavaScript -->
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+</body>
+</html>
