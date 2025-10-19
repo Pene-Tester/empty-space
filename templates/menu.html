@@ -315,20 +315,36 @@
     <nav class="navbar">
         <div class="nav-links nav-left">
             <a href="/" class="nav-link">HOME</a>
-            <a href="#" class="nav-link">ABOUT US</a>
+            <a href="/about" class="nav-link">ABOUT US</a>
         </div>
         
         <div class="logo">
             <div class="logo-icon">
-                <img src="{{ url_for('static', filename='images/logo.png') }}" alt="Empty Space Coffee Logo" class="logo-img">
+                <a href="/">
+                    <img src="{{ url_for('static', filename='images/logo.png') }}" alt="Empty Space Coffee Logo" class="logo-img">
+                </a>
             </div>
         </div>
         
         <div class="nav-links nav-right">
-            <a href="#" class="nav-link">CONTACT</a>
-            <a href="{{ url_for('menu') }}" class="nav-link active">MENU</a>
+            <a href="/contact" class="nav-link">CONTACT</a>
+            <a href="/menu" class="nav-link active">MENU</a>
         </div>
+        
+        <!-- Mobile Navigation Toggle -->
+        <button class="mobile-nav-toggle" aria-label="Toggle mobile menu">
+            <img src="{{ url_for('static', filename='images/burger-icon.png') }}" alt="Menu">
+        </button>
     </nav>
+
+    <!-- Mobile Navigation Menu -->
+    <div class="mobile-nav-menu">
+        <button class="mobile-nav-close" aria-label="Close mobile menu">&times;</button>
+        <a href="/" class="nav-link">HOME</a>
+        <a href="/about" class="nav-link">ABOUT US</a>
+        <a href="/contact" class="nav-link">CONTACT</a>
+        <a href="/menu" class="nav-link active">MENU</a>
+    </div>
 
     <!-- Main Content -->
     <main class="menu-hero">

@@ -163,8 +163,8 @@ body {
 }
 
 .logo-img {
-    width: 200px;
-    height: 200px;
+    width: 100px;
+    height: 100px;
     object-fit: contain;
     transition: all 0.3s ease;
     cursor: pointer;
@@ -174,7 +174,6 @@ body {
     transform: scale(1.1) rotate(5deg);
     filter: brightness(1.2) drop-shadow(0 0 20px rgba(255, 255, 255, 0.5));
 }
-
 
 /* Hero Section */
 .hero {
@@ -196,8 +195,8 @@ body {
 }
 
 .planet-img {
-    width: 100px;
-    height: 100px;
+    width: 140px;
+    height: 140px;
     object-fit: contain;
     filter: drop-shadow(0 0 20px rgba(255, 255, 255, 0.3));
     transition: all 0.3s ease;
@@ -228,12 +227,12 @@ body {
 }
 
 .hero-text {
-    max-width: 60ch;
+    max-width: 70ch;
     text-align: center;
-    margin-bottom: 2rem;
-    line-height: 1.5;
+    margin-bottom: 3rem;
+    line-height: 1.6;
     font-family: 'Montserrat', sans-serif;
-    font-size: 1rem;
+    font-size: 1.2rem;
     font-weight: 400;
 }
 
@@ -249,7 +248,7 @@ body {
 }
 
 .coffee-cup {
-    max-width: 200px;
+    max-width: 280px;
     height: auto;
 }
 
@@ -381,53 +380,162 @@ body {
     }
 }
 
+/* Mobile Navigation */
+.mobile-nav-toggle {
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0.5rem;
+    z-index: 1001;
+    position: relative;
+    order: 3; /* Move to the right side */
+}
+
+.mobile-nav-toggle img {
+    width: 30px;
+    height: 30px;
+    filter: brightness(0) invert(1);
+    transition: all 0.3s ease;
+}
+
+.mobile-nav-toggle:hover img {
+    filter: brightness(0) invert(1) drop-shadow(0 0 10px rgba(255, 255, 255, 0.5));
+}
+
+.mobile-nav-menu {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.95);
+    backdrop-filter: blur(10px);
+    z-index: 1000;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+    opacity: 0;
+    transform: translateY(-100%);
+    transition: all 0.3s ease;
+}
+
+.mobile-nav-menu.active {
+    display: flex;
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.mobile-nav-menu .nav-link {
+    font-size: 1.5rem;
+    font-weight: 600;
+    padding: 1rem 2rem;
+    border-radius: 50px;
+    background: rgba(255, 255, 255, 0.1);
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    transition: all 0.3s ease;
+    text-align: center;
+    min-width: 200px;
+}
+
+.mobile-nav-menu .nav-link:hover {
+    background: rgba(255, 215, 0, 0.2);
+    border-color: rgba(255, 215, 0, 0.5);
+    transform: scale(1.05);
+    box-shadow: 0 0 20px rgba(255, 215, 0, 0.3);
+}
+
+.mobile-nav-menu .nav-link.active {
+    background: rgba(255, 215, 0, 0.3);
+    border-color: rgba(255, 215, 0, 0.6);
+    box-shadow: 0 0 25px rgba(255, 215, 0, 0.4);
+}
+
+.mobile-nav-close {
+    position: absolute;
+    top: 2rem;
+    right: 2rem;
+    background: none;
+    border: none;
+    color: white;
+    font-size: 2rem;
+    cursor: pointer;
+    z-index: 1001;
+    padding: 0.5rem;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.1);
+    transition: all 0.3s ease;
+}
+
+.mobile-nav-close:hover {
+    background: rgba(255, 255, 255, 0.2);
+    transform: scale(1.1);
+}
+
 /* Responsive Design - Mobile First Approach */
 
 /* Extra Small Devices (phones, 320px and up) */
-@media (max-width: 480px) {
+@media (max-width: 768px) {
     .navbar {
-        height: 100px;
-        padding: 0 0.5rem;
-        flex-direction: column;
-        gap: 0.5rem;
+        height: 80px;
+        padding: 0 1rem;
         background: rgba(0, 0, 0, 0.3);
+        backdrop-filter: blur(10px);
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        position: relative;
+    }
+    
+    .navbar .nav-links {
+        display: none;
+    }
+    
+    .mobile-nav-toggle {
+        display: block;
+        position: absolute;
+        right: 1rem;
+        top: 50%;
+        transform: translateY(-50%);
+        z-index: 1001;
+    }
+    
+    .logo {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        z-index: 1000;
     }
     
     .logo-img {
-        width: 80px;
-        height: 80px;
-    }
-    
-    .nav-links {
-        gap: 1rem;
-        flex-wrap: wrap;
-        justify-content: center;
-    }
-    
-    .nav-link {
-        font-size: 0.7rem;
-        padding: 0.3rem 0.6rem;
+        width: 90px;
+        height: 90px;
     }
     
     .hero {
         padding: 0.5rem;
-        padding-top: 200px;
+        padding-top: 120px;
         min-height: 100vh;
     }
     
     .hero-text {
-        font-size: 0.8rem;
+        font-size: 1rem;
         max-width: 95%;
-        line-height: 1.4;
+        line-height: 1.5;
+        margin: 1.5rem 0;
+        padding: 0 1rem;
     }
     
     .planet-img {
-        width: 60px;
-        height: 60px;
+        width: 80px;
+        height: 80px;
     }
     
     .coffee-cup {
-        max-width: 120px;
+        max-width: 160px;
     }
     
     .constellation-left,
@@ -440,6 +548,55 @@ body {
     }
 }
 
+/* Extra Small Devices (phones, 320px and up) */
+@media (max-width: 480px) {
+    .navbar {
+        height: 70px;
+        padding: 0 0.5rem;
+    }
+    
+    .logo-img {
+        width: 70px;
+        height: 70px;
+    }
+    
+    .mobile-nav-toggle {
+        right: 0.5rem;
+    }
+    
+    .mobile-nav-toggle img {
+        width: 35px;
+        height: 35px;
+    }
+    
+    .hero {
+        padding-top: 100px;
+        padding: 0.5rem;
+    }
+    
+    .hero-text {
+        font-size: 0.9rem;
+        margin: 1rem 0;
+        padding: 0 0.5rem;
+        line-height: 1.4;
+    }
+    
+    .planet-img {
+        width: 70px;
+        height: 70px;
+    }
+    
+    .coffee-cup {
+        max-width: 140px;
+    }
+    
+    .mobile-nav-menu .nav-link {
+        font-size: 1.2rem;
+        padding: 0.8rem 1.5rem;
+        min-width: 150px;
+    }
+}
+
 /* Small Devices (landscape phones, 481px and up) */
 @media (min-width: 481px) and (max-width: 768px) {
     .navbar {
@@ -449,8 +606,8 @@ body {
     }
     
     .logo-img {
-        width: 100px;
-        height: 100px;
+        width: 120px;
+        height: 120px;
     }
     
     .nav-links {
@@ -468,17 +625,18 @@ body {
     }
     
     .hero-text {
-        font-size: 0.85rem;
+        font-size: 1.1rem;
         max-width: 90%;
+        line-height: 1.5;
     }
     
     .planet-img {
-        width: 70px;
-        height: 70px;
+        width: 90px;
+        height: 90px;
     }
     
     .coffee-cup {
-        max-width: 140px;
+        max-width: 180px;
     }
     
     .constellation-left,
@@ -514,17 +672,18 @@ body {
     }
     
     .hero-text {
-        font-size: 0.95rem;
+        font-size: 1.15rem;
         max-width: 80%;
+        line-height: 1.6;
     }
     
     .planet-img {
-        width: 90px;
-        height: 90px;
+        width: 110px;
+        height: 110px;
     }
     
     .coffee-cup {
-        max-width: 180px;
+        max-width: 220px;
     }
     
     .constellation-left,
@@ -541,8 +700,8 @@ body {
     }
     
     .logo-img {
-        width: 180px;
-        height: 180px;
+        width: 100px;
+        height: 100px;
     }
     
     .nav-links {
@@ -560,17 +719,18 @@ body {
     }
     
     .hero-text {
-        font-size: 1rem;
+        font-size: 1.3rem;
         max-width: 70%;
+        line-height: 1.6;
     }
     
     .planet-img {
-        width: 100px;
-        height: 100px;
+        width: 120px;
+        height: 120px;
     }
     
     .coffee-cup {
-        max-width: 200px;
+        max-width: 260px;
     }
 }
 
@@ -582,8 +742,8 @@ body {
     }
     
     .logo-img {
-        width: 220px;
-        height: 220px;
+        width: 160px;
+        height: 160px;
     }
     
     .nav-links {
@@ -601,17 +761,18 @@ body {
     }
     
     .hero-text {
-        font-size: 1.1rem;
+        font-size: 1.4rem;
         max-width: 60%;
+        line-height: 1.7;
     }
     
     .planet-img {
-        width: 120px;
-        height: 120px;
+        width: 140px;
+        height: 140px;
     }
     
     .coffee-cup {
-        max-width: 250px;
+        max-width: 300px;
     }
     
     .constellation-left,

@@ -90,42 +90,52 @@
      * Handles responsive navigation for small screens
      */
     function initializeMobileMenu() {
-        const navbar = document.querySelector('.navbar');
-        const navLinks = document.querySelectorAll('.nav-links');
+        const mobileNavToggle = document.querySelector('.mobile-nav-toggle');
+        const mobileNavMenu = document.querySelector('.mobile-nav-menu');
+        const mobileNavClose = document.querySelector('.mobile-nav-close');
+        const mobileNavLinks = document.querySelectorAll('.mobile-nav-menu .nav-link');
         
-        // Create mobile menu toggle if screen is small
-        function createMobileMenu() {
-            if (window.innerWidth <= 768) {
-                // Add mobile menu styles
-                navbar.classList.add('mobile-nav');
-                
-                // Create hamburger button
-                if (!document.querySelector('.mobile-menu-toggle')) {
-                    const toggle = document.createElement('button');
-                    toggle.className = 'mobile-menu-toggle';
-                    toggle.innerHTML = '☰';
-                    toggle.setAttribute('aria-label', 'Toggle mobile menu');
-                    
-                    // Add click handler
-                    toggle.addEventListener('click', () => {
-                        navbar.classList.toggle('mobile-open');
-                    });
-                    
-                    navbar.appendChild(toggle);
-                }
-            } else {
-                // Remove mobile menu styles
-                navbar.classList.remove('mobile-nav', 'mobile-open');
-                const toggle = document.querySelector('.mobile-menu-toggle');
-                if (toggle) {
-                    toggle.remove();
-                }
-            }
+        // Toggle mobile menu
+        if (mobileNavToggle && mobileNavMenu) {
+            mobileNavToggle.addEventListener('click', () => {
+                mobileNavMenu.classList.add('active');
+                document.body.style.overflow = 'hidden'; // Prevent background scrolling
+            });
         }
-
-        // Initialize on load and resize
-        createMobileMenu();
-        window.addEventListener('resize', createMobileMenu);
+        
+        // Close mobile menu
+        if (mobileNavClose && mobileNavMenu) {
+            mobileNavClose.addEventListener('click', () => {
+                mobileNavMenu.classList.remove('active');
+                document.body.style.overflow = ''; // Restore scrolling
+            });
+        }
+        
+        // Close mobile menu when clicking on links
+        mobileNavLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileNavMenu.classList.remove('active');
+                document.body.style.overflow = ''; // Restore scrolling
+            });
+        });
+        
+        // Close mobile menu when clicking outside
+        if (mobileNavMenu) {
+            mobileNavMenu.addEventListener('click', (e) => {
+                if (e.target === mobileNavMenu) {
+                    mobileNavMenu.classList.remove('active');
+                    document.body.style.overflow = ''; // Restore scrolling
+                }
+            });
+        }
+        
+        // Close mobile menu on escape key
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && mobileNavMenu && mobileNavMenu.classList.contains('active')) {
+                mobileNavMenu.classList.remove('active');
+                document.body.style.overflow = ''; // Restore scrolling
+            }
+        });
     }
 
     /**
