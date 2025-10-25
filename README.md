@@ -1,28 +1,61 @@
-# Empty Space Café - Flask Web App
+# Empty Space Café
 
-A beautiful, responsive landing page for "Empty Space Café" featuring a cosmic theme with animated stars, constellations, and smooth animations. Built with Flask and vanilla CSS/JavaScript.
+A beautiful, responsive Flask web application for a space-themed coffee shop.
 
 ## 🌟 Features
 
-- **Cosmic Design**: Deep space gradient background with animated stars and constellation patterns
-- **Responsive Layout**: Works perfectly on desktop, tablet, and mobile devices
-- **Smooth Animations**: Fade-in effects, floating elements, and subtle parallax scrolling
-- **Accessibility**: Semantic HTML, proper contrast, and reduced motion support
-- **Zero Build Step**: Pure Flask with static assets - no webpack, Vite, or other build tools
+- **Responsive Design**: Works perfectly on all devices (mobile, tablet, desktop)
+- **Space Theme**: Animated stars, constellations, and cosmic elements
+- **Modern UI**: Clean, professional design with smooth animations
+- **Navigation**: Easy navigation between Home and Menu pages
+- **Mobile-First**: Optimized for mobile devices with touch-friendly interface
 
-## 🚀 Quick Start
+## 🚀 Deployment Options
 
-### Prerequisites
+### Option 1: GitHub Pages (Static Site)
+1. Push this repository to GitHub
+2. Enable GitHub Pages in repository settings
+3. Your site will be available at: `https://yourusername.github.io/empty-space-cafe`
 
-- Python 3.7 or higher
-- pip (Python package manager)
+### Option 2: Railway (Flask App)
+1. Go to [railway.app](https://railway.app)
+2. Connect your GitHub repository
+3. Deploy automatically
 
-### Installation & Running
+### Option 3: Render (Flask App)
+1. Go to [render.com](https://render.com)
+2. Connect your GitHub repository
+3. Deploy automatically
+
+## 📁 Project Structure
+
+```
+empty-space-cafe/
+├── app.py                 # Flask application
+├── requirements.txt       # Python dependencies
+├── templates/            # HTML templates
+│   ├── index.html        # Home page
+│   ├── menu.html         # Menu page
+│   ├── about.html        # About page
+│   └── contact.html      # Contact page
+├── static/               # Static assets
+│   ├── css/
+│   │   ├── main.css      # Main stylesheet
+│   │   └── menu.css      # Menu page styles
+│   ├── js/
+│   │   └── main.js       # JavaScript functionality
+│   └── images/           # Image assets
+├── .github/workflows/    # GitHub Actions
+│   └── deploy.yml        # Deployment workflow
+└── README.md            # This file
+```
+
+## 🛠️ Local Development
 
 1. **Clone the repository**
    ```bash
-   git clone <your-repo-url>
-   cd empty-space
+   git clone https://github.com/yourusername/empty-space-cafe.git
+   cd empty-space-cafe
    ```
 
 2. **Install dependencies**
@@ -30,174 +63,65 @@ A beautiful, responsive landing page for "Empty Space Café" featuring a cosmic 
    pip install -r requirements.txt
    ```
 
-3. **Run the Flask application**
-   ```bash
-   # Set Flask environment variable
-   set FLASK_APP=app.py
-   
-   # Run the development server
-   flask run
-   ```
-   
-   Or alternatively:
+3. **Run the application**
    ```bash
    python app.py
    ```
 
-4. **Open your browser**
-   Navigate to `http://127.0.0.1:5000` to view the landing page.
-
-## 📁 Project Structure
-
-```
-empty-space/
-├── app.py                 # Flask application entry point
-├── requirements.txt       # Python dependencies
-├── README.md             # This file
-├── templates/
-│   └── index.html        # Main HTML template
-└── static/
-    ├── css/
-    │   └── main.css      # All styles and animations
-    ├── js/
-    │   └── main.js       # JavaScript for interactions
-    └── images/
-        └── coffee.png    # Coffee cup image (placeholder)
-```
-
-## 🎨 Customization
-
-### Replacing Images
-
-1. **Coffee Cup Image**: Replace `static/images/coffee.png` with your own iced latte photo
-   - Recommended size: 200x240px
-   - Format: PNG or JPG
-   - Keep the same filename or update the reference in `templates/index.html`
-
-2. **Logo**: The logo is currently an inline SVG in the HTML template
-   - Edit the SVG code in `templates/index.html` around line 25-35
-   - Or replace with an image by modifying the logo section
-
-### Styling Customization
-
-The main styles are in `static/css/main.css`. Key sections to customize:
-
-- **Background Colors**: Lines 15-16 (gradient from `#000010` to `#120025`)
-- **Star Density**: Lines 25-50 (modify the `background-image` properties)
-- **Constellation Placement**: Lines 200-250 (adjust `.constellation-left` and `.constellation-right`)
-- **Animation Speed**: Lines 100-120 (modify `animation-duration` values)
-- **Typography**: Lines 80-90 (font family, sizes, colors)
-
-### Animation Controls
-
-- **Star Twinkling**: Controlled by CSS `@keyframes twinkle` (lines 60-65)
-- **Constellation Movement**: CSS `@keyframes constellationMove` (lines 280-290)
-- **Fade-in Effects**: CSS `@keyframes fadeInUp` (lines 300-310)
-- **Parallax Effects**: JavaScript in `static/js/main.js` (lines 40-70)
-
-## 🔧 Technical Details
-
-### Dependencies
-
-- **Flask 2.3.3**: Web framework
-- **Google Fonts**: Montserrat font family (loaded via CDN)
-
-### Browser Support
-
-- Chrome 60+
-- Firefox 55+
-- Safari 12+
-- Edge 79+
-
-### Performance
-
-- **JavaScript Size**: < 5KB (no external libraries)
-- **CSS Size**: ~8KB (includes all animations)
-- **Total Page Load**: < 50KB (excluding images)
+4. **Access the app**
+   - Local: http://127.0.0.1:5000
+   - Network: http://192.168.1.7:5000 (accessible from other devices)
 
 ## 📱 Responsive Breakpoints
 
-- **Desktop**: 1200px and above
-- **Tablet**: 768px - 1199px
-- **Mobile**: 480px - 767px
-- **Small Mobile**: Below 480px
+- **Mobile**: 320px - 768px
+- **Tablet**: 769px - 1024px
+- **Desktop**: 1025px - 1440px
+- **Large Desktop**: 1441px+
 
-## ♿ Accessibility Features
+## 🎨 Customization
 
-- Semantic HTML structure (`<nav>`, `<main>`, proper headings)
-- High contrast mode support
-- Reduced motion support for users with vestibular disorders
-- Keyboard navigation support
-- Screen reader friendly
+### Colors
+- Primary: #FFFFFF (White)
+- Accent: #FFD700 (Gold)
+- Background: Space theme with stars and gradients
 
-## 🎯 Development Notes
+### Fonts
+- Primary: Montserrat (Google Fonts)
 
-### CSS Architecture
+### Images
+Replace images in `static/images/` with your own:
+- `logo.png` - Your café logo
+- `icon0.png` - Planet/space icon
+- `cup0.png`, `cup1.png` - Coffee cup images
+- `coffee-icon.png` - Coffee icon for menu
+- `beans.png` - Coffee beans decoration
+- `wave-arrow-icon.png` - Arrow decoration
 
-- Uses CSS custom properties for easy theming
-- Mobile-first responsive design
-- Flexbox and Grid for layout
-- CSS animations instead of JavaScript where possible
+## 🔧 Technical Details
 
-### JavaScript Features
-
-- Vanilla JavaScript (no frameworks)
-- Intersection Observer for scroll-triggered animations
-- RequestAnimationFrame for smooth animations
-- Performance optimization for low-end devices
-
-### Flask Configuration
-
-- Single route (`/`) for the landing page
-- Static file serving for CSS, JS, and images
-- Jinja2 templating for dynamic content
-
-## 🐛 Troubleshooting
-
-### Common Issues
-
-1. **Port already in use**
-   ```bash
-   # Use a different port
-   flask run --port 5001
-   ```
-
-2. **Module not found errors**
-   ```bash
-   # Make sure you're in the project directory
-   cd empty-space
-   pip install -r requirements.txt
-   ```
-
-3. **Images not loading**
-   - Check that images are in the `static/images/` directory
-   - Verify file permissions
-   - Clear browser cache
-
-### Debug Mode
-
-To enable Flask debug mode:
-```bash
-set FLASK_ENV=development
-flask run
-```
+- **Framework**: Flask (Python)
+- **Frontend**: HTML5, CSS3, JavaScript
+- **Responsive**: CSS Grid/Flexbox
+- **Animations**: CSS Keyframes
+- **Icons**: Custom SVG/PNG
+- **Fonts**: Google Fonts (Montserrat)
 
 ## 📄 License
 
-This project is open source and available under the MIT License.
+This project is open source and available under the [MIT License](LICENSE).
 
 ## 🤝 Contributing
 
 1. Fork the repository
 2. Create a feature branch
 3. Make your changes
-4. Test thoroughly
-5. Submit a pull request
+4. Submit a pull request
 
 ## 📞 Support
 
-For questions or issues, please open an issue in the repository or contact the development team.
+If you have any questions or need help, please open an issue on GitHub.
 
 ---
 
-**Empty Space Café** - Where coffee meets the cosmos ☕✨
+**Enjoy your cosmic coffee experience! ☕️🚀**
