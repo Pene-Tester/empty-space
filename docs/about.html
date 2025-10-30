@@ -4,57 +4,50 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>About Us - Empty Space Café</title>
-    
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">
-    
     <!-- CSS -->
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}?v=1">
+    <link rel="stylesheet" href="static/css/main.css?v=1">
 </head>
 <body>
     <!-- Navigation -->
     <nav class="navbar">
         <div class="nav-links nav-left">
-            <a href="/" class="nav-link">HOME</a>
-            <a href="/about" class="nav-link active">ABOUT US</a>
+            <a href="index.html" class="nav-link">HOME</a>
+            <a href="about.html" class="nav-link active">ABOUT US</a>
         </div>
-        
         <div class="logo">
             <div class="logo-icon">
-                <a href="/">
-                    <img src="{{ url_for('static', filename='images/logo.png') }}" alt="Empty Space Coffee Logo" class="logo-img">
+                <a href="index.html">
+                    <img src="static/images/logo.png" alt="Empty Space Coffee Logo" class="logo-img">
                 </a>
             </div>
         </div>
-        
         <div class="nav-links nav-right">
-            <a href="/contact" class="nav-link">CONTACT</a>
-            <a href="/menu" class="nav-link">MENU</a>
+            <a href="contact.html" class="nav-link">CONTACT</a>
+            <a href="menu.html" class="nav-link">MENU</a>
         </div>
-        
         <!-- Mobile Navigation Toggle -->
         <button class="mobile-nav-toggle" aria-label="Toggle mobile menu">
-            <img src="{{ url_for('static', filename='images/burger-icon.png') }}" alt="Menu">
+            <img src="static/images/burger-icon.png" alt="Menu">
         </button>
     </nav>
-
-    <!-- Mobile Navigation Menu -->
     <div class="mobile-nav-menu">
         <button class="mobile-nav-close" aria-label="Close mobile menu">&times;</button>
-        <a href="/" class="nav-link">HOME</a>
-        <a href="/about" class="nav-link active">ABOUT US</a>
-        <a href="/contact" class="nav-link">CONTACT</a>
-        <a href="/menu" class="nav-link">MENU</a>
+        <a href="index.html" class="nav-link">HOME</a>
+        <a href="about.html" class="nav-link active">ABOUT US</a>
+        <a href="contact.html" class="nav-link">CONTACT</a>
+        <a href="menu.html" class="nav-link">MENU</a>
     </div>
-
-    <!-- Main Content -->
     <main class="hero">
-        <!-- Content will be added later -->
+        <div class="about-content" style="text-align:center;margin-top:40px;color:#fff;">
+            <h2>About Empty Space Café</h2>
+            <p>Welcome to Empty Space Café, where cosmic coffee meets earthly delights. Our celestial-themed café offers a unique experience in the heart of downtown.</p>
+            <p>Enjoy artisan coffee and pastries under a universe of gentle starlight. Designed for inspiration, relaxation, and connection.</p>
+        </div>
     </main>
-
-    <!-- Constellation Elements -->
     <div class="constellation constellation-left">
         <div class="star star-1"></div>
         <div class="star star-2"></div>
@@ -64,7 +57,6 @@
         <div class="constellation-line line-2"></div>
         <div class="constellation-line line-3"></div>
     </div>
-
     <div class="constellation constellation-right">
         <div class="star star-1"></div>
         <div class="star star-2"></div>
@@ -76,15 +68,11 @@
         <div class="constellation-line line-3"></div>
         <div class="constellation-line line-4"></div>
     </div>
-
-    <!-- Background Stars -->
     <div class="stars-container">
         <div class="stars stars-1"></div>
         <div class="stars stars-2"></div>
         <div class="stars stars-3"></div>
     </div>
-
-    <!-- JavaScript -->
-    <script src="{{ url_for('static', filename='js/main.js') }}?v=1"></script>
+    <script src="static/js/main.js?v=1"></script>
 </body>
 </html>

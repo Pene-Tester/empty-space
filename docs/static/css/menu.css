@@ -19,12 +19,15 @@
 
 .menu-title h1 {
     font-family: 'Montserrat', sans-serif;
-    font-size: 3rem;
+    font-size: 1.7rem;
     font-weight: 700;
     color: #FFFFFF;
     text-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
     letter-spacing: 2px;
     animation: glow 2s ease-in-out infinite alternate;
+    max-width: 95vw;
+    margin: 0 auto 1.5rem auto;
+    padding: 0 0.5rem;
 }
 
 @keyframes glow {
@@ -100,11 +103,16 @@
     animation: float 3s ease-in-out infinite;
 }
 
+/* Fix animated arrow icon wave effect */
+@keyframes arrowWave {
+  0%, 100% { transform: translateX(0) scale(1); opacity: 0.7; }
+  50%      { transform: translateX(10px) scale(1.1); opacity: 1; }
+}
 .arrow {
-    width: 40px;
-    height: auto;
-    opacity: 0.7;
-    animation: pulse 2s ease-in-out infinite;
+  width: 40px;
+  height: auto;
+  opacity: 0.7;
+  animation: arrowWave 2s infinite;
 }
 
 .drink-description {
@@ -191,4 +199,47 @@
     .arrow {
         width: 30px;
     }
+}
+
+/* Small logo size and animation for the menu page */
+.logo-img {
+  width: 90px !important;
+  height: 90px !important;
+  transition: transform 0.3s ease, filter 0.3s ease;
+}
+.logo-icon:hover .logo-img {
+  transform: scale(1.10) rotate(4deg);
+  filter: drop-shadow(0 0 16px #fff) brightness(1.3);
+}
+
+/* Match the coffee icon with planet (Saturn) icon for size/effects */
+.menu-icon .coffee-icon-img {
+  width: 140px !important;
+  height: 140px !important;
+  object-fit: contain;
+  filter: drop-shadow(0 0 20px rgba(255,255,255,0.3));
+  animation: float 6s ease-in-out infinite, rotate 20s linear infinite, pulse 4s ease-in-out infinite;
+  transition: all 0.3s;
+}
+.menu-icon:hover .coffee-icon-img {
+  transform: scale(1.2);
+  filter: drop-shadow(0 0 30px rgba(255,255,255,0.6)) brightness(1.3);
+}
+@media (max-width: 1024px) {
+  .menu-icon .coffee-icon-img {
+    width: 110px !important;
+    height: 110px !important;
+  }
+}
+@media (max-width: 768px) {
+  .menu-icon .coffee-icon-img {
+    width: 80px !important;
+    height: 80px !important;
+  }
+}
+@media (max-width: 480px) {
+  .menu-icon .coffee-icon-img {
+    width: 60px !important;
+    height: 60px !important;
+  }
 }
